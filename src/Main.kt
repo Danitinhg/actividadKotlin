@@ -1,5 +1,6 @@
 fun main() {
     var anagrama: Boolean = true
+    var vocales: Int = 0
 
     println("Introduzca una palabra: ")
     val palabra1 = readln()
@@ -10,26 +11,36 @@ fun main() {
         anagrama = false
     }
 
-    val ayPalabra1: MutableList<Char> = mutableListOf()
-    val ayPalabra2: MutableList<Char> = mutableListOf()
+    val listPalabra1: MutableList<String> = mutableListOf()
+    val listPalabra2: MutableList<String> = mutableListOf()
 
     for (i in palabra1.toCharArray().indices) {
         val letra: Char = palabra1[i]
-        ayPalabra1.add(letra)
-        println(ayPalabra1)
+        listPalabra1.add(letra.toString())
     }
 
     for (i in palabra2.toCharArray().indices) {
         val letra: Char = palabra2[i]
-        ayPalabra2.add(letra)
-        println(ayPalabra2)
+        listPalabra2.add(letra.toString())
     }
 
-    
+    for (i in listPalabra1) {
+       if (i == "a" || i == "e" || i == "i" || i == "o" || i == "u") {
+           vocales++
+       }
+    }
 
+    for (i in listPalabra2) {
+        if (i == "a" || i == "e" || i == "i" || i == "o" || i == "u") {
+            vocales++
+        }
+    }
 
-
+    if (vocales % 2 == 0) {
+        anagrama = true
+    } else {
+        anagrama = false
+    }
 
     println("¿Las palabras $palabra1 y $palabra2 son un anagrama? = $anagrama")
-
 }
