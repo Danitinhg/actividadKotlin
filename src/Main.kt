@@ -7,10 +7,6 @@ fun main() {
     println("Introduzca otra palabra: ")
     val palabra2 = readln()
 
-    if (palabra1 == palabra2) {
-        anagrama = false
-    }
-
     val listPalabra1: MutableList<String> = mutableListOf()
     val listPalabra2: MutableList<String> = mutableListOf()
 
@@ -39,6 +35,10 @@ fun main() {
     if (vocales % 2 == 0) {
         anagrama = true
     } else {
+        anagrama = false
+    }
+
+    if (palabra1 == palabra2) {
         anagrama = false
     }
 
