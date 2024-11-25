@@ -12,7 +12,9 @@ fun programa3 (mensaje: String) {
     var cierres1: Int = 0
     var cierres2: Int = 0
     var cierres3: Int = 0
-    var abierto: Boolean = false
+    var abierto1: Boolean = false
+    var abierto2: Boolean = false
+    var abierto3: Boolean = false
 
     val listMensaje: MutableList<String> = mutableListOf()
 
@@ -22,24 +24,46 @@ fun programa3 (mensaje: String) {
     }
 
     for (i in listMensaje) {
-        if (i == "(" || i == ")") {
+        if (i == "(") {
             cierres1++
+            abierto1 = true
         }
     }
 
     for (i in listMensaje) {
-        if (i == "{" || i == "}") {
+        if (i == ")") {
+            cierres1++
+            abierto1 = false
+        }
+    }
+
+    for (i in listMensaje) {
+        if (i == "{") {
             cierres2++
+            abierto2 = true
         }
     }
 
     for (i in listMensaje) {
-        if (i == "[" || i == "]") {
-            cierres3++
+        if (i == "}") {
+            cierres2++
+            abierto2 = false
         }
     }
 
+    for (i in listMensaje) {
+        if (i == "[") {
+            cierres3++
+            abierto3 = true
+        }
+    }
 
+    for (i in listMensaje) {
+        if (i == "]") {
+            abierto3 = false
+        }
+    }
+    
     if (cierres1 % 2 == 0 && cierres2 % 2 == 0 && cierres3 % 2 == 0) {
         var balanceada: Boolean = true
         println("$mensaje ¿esta balanceada? $balanceada")
