@@ -10,12 +10,8 @@ fun main() {
 }
 
 fun programa3 (mensaje: String) {
-    var cierres1: Int = 0
-    var cierres2: Int = 0
-    var cierres3: Int = 0
-    var abierto1: Boolean = false
-    var abierto2: Boolean = false
-    var abierto3: Boolean = false
+
+    var abiertoInvertido: Boolean = true
 
     val listMensaje: MutableList<String> = mutableListOf()
 
@@ -27,16 +23,6 @@ fun programa3 (mensaje: String) {
             listMensaje.add(letra.toString())
         }
     }
-
     
-    
-    if (cierres1 % 2 == 0 && cierres2 % 2 == 0 && cierres3 % 2 == 0) {
-        var balanceada: Boolean = true
-        println("$mensaje ¿esta balanceada? $balanceada")
-    } else {
-        var balanceada: Boolean = false
-        println("$mensaje ¿esta balanceada? $balanceada")
-    }
-
     println(listMensaje)
 }
