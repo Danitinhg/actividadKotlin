@@ -6,6 +6,7 @@ fun main() {
     programa3("{ ] a * ( c + d ) + ( 2 - 3 )[ - 5 }")
     programa3("{{{{{{(}}}}}}")
     programa3("(a")
+    programa3("( a + b { 2 * 4 ) + 3 }")
 }
 
 fun programa3 (mensaje: String) {
@@ -20,49 +21,14 @@ fun programa3 (mensaje: String) {
 
     for (i in mensaje.toCharArray().indices) {
         val letra: Char = mensaje[i]
-        listMensaje.add(letra.toString())
-    }
-
-    for (i in listMensaje) {
-        if (i == "(") {
-            cierres1++
-            abierto1 = true
+        if (letra == '(' || letra == '{' || letra == '[') {
+            listMensaje.add(letra.toString())
+        } else if (letra == ')' || letra == '}' || letra == ']') {
+            listMensaje.add(letra.toString())
         }
     }
 
-    for (i in listMensaje) {
-        if (i == ")") {
-            cierres1++
-            abierto1 = false
-        }
-    }
-
-    for (i in listMensaje) {
-        if (i == "{") {
-            cierres2++
-            abierto2 = true
-        }
-    }
-
-    for (i in listMensaje) {
-        if (i == "}") {
-            cierres2++
-            abierto2 = false
-        }
-    }
-
-    for (i in listMensaje) {
-        if (i == "[") {
-            cierres3++
-            abierto3 = true
-        }
-    }
-
-    for (i in listMensaje) {
-        if (i == "]") {
-            abierto3 = false
-        }
-    }
+    
     
     if (cierres1 % 2 == 0 && cierres2 % 2 == 0 && cierres3 % 2 == 0) {
         var balanceada: Boolean = true
@@ -71,4 +37,6 @@ fun programa3 (mensaje: String) {
         var balanceada: Boolean = false
         println("$mensaje ¿esta balanceada? $balanceada")
     }
+
+    println(listMensaje)
 }
