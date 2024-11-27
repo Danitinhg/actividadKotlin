@@ -35,12 +35,19 @@ fun programa4 (arrayAccion: Array<String>, pista: String) {
         }
     }
 
+    if (listAccion.first() == "|") {
+        val a: String = listAccion.first()
+        if (a != listPista.first()) {
+            println("x")
+        }
+    }
+
     if (listAccion == listPista) {
         iguales = true
         println("$pista $iguales")
-    } else {
-
     }
+
+
 
 }
 
