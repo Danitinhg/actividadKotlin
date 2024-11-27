@@ -1,14 +1,16 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+    programa4(arrayOf("correr", "saltar", "correr", "saltar", "correr"), "_|_|_")
+    programa4(arrayOf("correr", "correr", "correr", "saltar", "correr"), "_|_|_")
+    programa4(arrayOf("correr", "correr", "saltar", "saltar", "correr"), "_|_|_")
+    programa4(arrayOf("correr", "correr", "saltar", "saltar", "correr"), "_|_|_|_")
+    programa4(arrayOf("correr", "saltar", "correr", "saltar"), "_|_|_")
+    programa4(arrayOf("correr", "saltar", "correr", "saltar", "correr", "saltar", "correr"), "_|_|_")
+    programa4(arrayOf("saltar", "saltar", "saltar", "saltar", "saltar"), "|||||")
+    programa4(arrayOf("saltar", "saltar", "saltar", "saltar", "saltar"), "||_||")
+}
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
-    }
+fun programa4 (array: Array<String>, pista: String) {
+
+    println(array)
+    println(pista)
 }
