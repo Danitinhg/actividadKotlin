@@ -11,18 +11,67 @@ fun main() {
 
 fun programa3 (mensaje: String) {
 
-    var abiertoInvertido: Boolean = true
+    var abierto1: Boolean = false
+    var abierto2: Boolean = false
+    var abierto3: Boolean = false
 
     val listMensaje: MutableList<String> = mutableListOf()
+    val listMensajeCopia: MutableList<String> = mutableListOf()
 
     for (i in mensaje.toCharArray().indices) {
         val letra: Char = mensaje[i]
         if (letra == '(' || letra == '{' || letra == '[') {
             listMensaje.add(letra.toString())
+            listMensajeCopia.add(letra.toString())
         } else if (letra == ')' || letra == '}' || letra == ']') {
             listMensaje.add(letra.toString())
+            listMensajeCopia.add(letra.toString())
+        }
+    }
+    
+    for (i in listMensaje) {
+        if (i == "(") {
+            val a: String = listMensaje.last()
+
+            if (a == ")") {
+                listMensajeCopia.remove(i)
+                listMensajeCopia.remove(a)
+            }
+        }
+
+        if (i == "{") {
+            val a: String = listMensaje.last()
+
+            if (a == "}") {
+                listMensajeCopia.remove(i)
+                listMensajeCopia.remove(a)
+            }
+        }
+
+        if (i == "[") {
+            val a: String = listMensaje.last()
+
+            if (a == "]") {
+                listMensajeCopia.remove(i)
+                listMensajeCopia.remove(a)
+            }
         }
     }
     
     println(listMensaje)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
