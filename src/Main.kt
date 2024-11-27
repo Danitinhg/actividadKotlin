@@ -10,11 +10,7 @@ fun main() {
 }
 
 fun programa3 (mensaje: String) {
-
-    var abierto1: Boolean = false
-    var abierto2: Boolean = false
-    var abierto3: Boolean = false
-
+    var balanceada: Boolean = false
     val listMensaje: MutableList<String> = mutableListOf()
     val listMensajeCopia: MutableList<String> = mutableListOf()
 
@@ -28,37 +24,37 @@ fun programa3 (mensaje: String) {
             listMensajeCopia.add(letra.toString())
         }
     }
-    
+
     for (i in listMensaje) {
-        if (i == "(") {
-            val a: String = listMensaje.last()
-
-            if (a == ")") {
-                listMensajeCopia.remove(i)
-                listMensajeCopia.remove(a)
+        when (i) {
+            "(" -> {
+                if (listMensajeCopia.last() == ")") {
+                    listMensajeCopia.remove(i)
+                    listMensajeCopia.remove(listMensajeCopia.last())
+                }
             }
-        }
 
-        if (i == "{") {
-            val a: String = listMensaje.last()
-
-            if (a == "}") {
-                listMensajeCopia.remove(i)
-                listMensajeCopia.remove(a)
+            "{" -> {
+                if (listMensajeCopia.last() == "}") {
+                    listMensajeCopia.remove(i)
+                    listMensajeCopia.remove(listMensajeCopia.last())
+                }
             }
-        }
 
-        if (i == "[") {
-            val a: String = listMensaje.last()
-
-            if (a == "]") {
-                listMensajeCopia.remove(i)
-                listMensajeCopia.remove(a)
+            "[" -> {
+                if (listMensajeCopia.last() == "]") {
+                    listMensajeCopia.remove(i)
+                    listMensajeCopia.remove(listMensajeCopia.last())
+                }
             }
         }
     }
-    
-    println(listMensaje)
+
+    if (listMensajeCopia.none()) {
+        balanceada = true
+    }
+
+    println("$mensaje ¿está balanceada? $balanceada")
 }
 
 
