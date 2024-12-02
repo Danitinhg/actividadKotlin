@@ -68,7 +68,9 @@ fun op1 () {
     println("Indique el numero del nuevo contacto ")
     val num = readln()
 
-    if (arrayCont.size == 3) {
+    val con = Contacto(nom, num)
+
+    if (arrayCont.size >= 3) {
         println("No se puede añadir un nuevo contacto porque la agenda esta llena")
         menu()
     }
@@ -82,14 +84,16 @@ fun op1 () {
 
     for (i in arrayCont) {
         if (arrayCont[i].nombre != "eliminado") {
-            arrayCont[i].nombre = nom
-            arrayCont[i].numero = num
+            arrayCont[i] = con
 
             println("Contacto añadido correctamente")
             menu()
         }
     }
+
 }
+
+
 
 fun op2 () {
 
@@ -179,4 +183,8 @@ fun op7 () {
 
 private operator fun Any.get(index: Contacto): Contacto {
     TODO("Not yet implemented")
+}
+
+private operator fun <T> Array<T>.set(i: T, value: T) {
+
 }
